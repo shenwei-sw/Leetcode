@@ -13,21 +13,19 @@ class Solution {
         if(head == null) return null;
 
         Node pre = new Node(0, null, head, null);
-        Node preHead = pre;
-        Stack<Node> stack = new Stack<>();
-        stack.push(head);
-        while(!stack.isEmpty()){
-            Node cur = stack.pop();
-            pre.next = cur;
-            cur.prev = pre;
-            if(cur.next != null) stack.push(cur.next);
-            if(cur.child != null) {
-                stack.push(cur.child);
-                cur.child = null;
-            }
-            pre = cur;
-        }
-        preHead.next.prev = null;
-        return preHead.next;
+        dfs(pre, head);
+        pre.next.prev = null;
+        return pre.next;
+    }
+
+    public Node dfs(Node pre, Node cur){
+        if(cur == null) return pre;
+        pre.next = cur;
+        cur.prev = pre;
+
+        Node next = cur.next;
+        Node tail = dfs(cur, cur.child);
+        cur.child = null;
+        return dfs(tail, next);
     }
 }
