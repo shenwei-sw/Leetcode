@@ -5,17 +5,11 @@ class Solution {
         Map<Character, Integer> map = new HashMap<>();
         for(int i = 0; i < s.length(); i++){
             char ch = s.charAt(i);
-            if(!map.containsKey(ch)){
-                map.put(ch, i);
-                max = Math.max(max, i - start + 1);
+            if(map.containsKey(ch)){
+                start = Math.max(start, map.get(ch));
             }
-            else{
-                int index = map.get(ch);
-                while(start <= index){
-                    map.remove(s.charAt(start++));
-                }
-                map.put(ch, i);
-            }
+            max = Math.max(max, i - start + 1);
+            map.put(ch, i + 1);
         }
         return max;
     }
