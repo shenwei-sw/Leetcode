@@ -2,20 +2,27 @@ class Solution {
     public int punishmentNumber(int n) {
         int ret = 0; 
         for(int i = 1; i <= n; i++){
-            if(check(i * i, i)) ret += i * i;
+            if(check(Integer.toString(i * i), i)) ret += i * i;
         }
         return ret;
     }
 
-    public boolean check(int sqt, int i){
-        if(i < 0 || i > sqt){
+    public boolean check(String sqt, int i){
+        if(i < 0){
             return false;
         }
 
-        if(sqt == i){
+        if(sqt.isEmpty() && i == 0){
             return true;
         }
 
-        return check(sqt / 10, i - sqt % 10) || check(sqt / 100, i - sqt % 100) || check(sqt / 1000, i - sqt % 1000);
+        for(int k = 0; k < sqt.length(); k++){
+            String left = sqt.substring(0, k + 1);
+            String right = sqt.substring(k + 1);
+
+            int leftNum = Integer.parseInt(left);
+            if(check(right, i - leftNum)) return true;
+        }
+        return false;
     }
 }
