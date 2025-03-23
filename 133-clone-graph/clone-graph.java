@@ -29,8 +29,7 @@ class Solution {
         queue.offer(cur);
         while(!queue.isEmpty()){
             cur = queue.poll();
-            copy = map.get(cur);
-            copy.neighbors = new ArrayList<Node>();
+            copy = map.get(cur);       
             for(Node n : cur.neighbors){
                 if(!map.containsKey(n)){
                     Node n_copy = new Node(n.val);
