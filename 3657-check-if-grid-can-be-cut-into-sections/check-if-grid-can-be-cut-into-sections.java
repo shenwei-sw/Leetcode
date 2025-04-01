@@ -5,7 +5,7 @@ class Solution {
 
     public boolean checkCuts(int[][] rectangles, int dim){
         int cuts = 0;
-        Arrays.sort(rectangles, (a, b) -> Integer.compare(a[dim], b[dim]));
+        Arrays.sort(rectangles, (a, b) -> (a[dim] - b[dim]));
         int endx = rectangles[0][dim + 2];
         for(int i = 1; i < rectangles.length; i++){
             if(rectangles[i][dim] >= endx) cuts++;
