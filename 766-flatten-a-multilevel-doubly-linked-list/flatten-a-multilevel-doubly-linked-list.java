@@ -28,8 +28,7 @@ class Solution {
             cur.child = null;
             pre = cur;
         }
-        preHead.next = head;
-        head.prev = null;
-        return head;
+        preHead.next.prev = null;
+        return preHead.next;
     }
 }
