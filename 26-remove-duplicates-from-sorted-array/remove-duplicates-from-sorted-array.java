@@ -4,15 +4,12 @@ class Solution {
         int value = nums[start];
         int cur = 1;
         while(cur < nums.length){
-            if(nums[cur] == value){
-                cur++;
-            }
-            else {
+            if(nums[cur] != value){
                 value = nums[cur];
                 start++;
                 nums[start] = value;
-                cur++;
             }
+            cur++;
         }
         return start + 1;
     }
