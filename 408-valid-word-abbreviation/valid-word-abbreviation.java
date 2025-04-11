@@ -12,10 +12,9 @@ class Solution {
             }
             else if(ch > '0' && ch <= '9'){
                 int len = 0;
-                while(ia < lena && isDigit(ch)){
-                    len = len * 10 + ch - '0';
+                while(ia < lena && isDigit(abbr.charAt(ia))){
+                    len = len * 10 + abbr.charAt(ia) - '0';
                     ia++;
-                    if(ia != lena) ch = abbr.charAt(ia);
                 }
                 iw += len;
             }
