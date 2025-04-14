@@ -15,7 +15,7 @@ class MovingAverage {
             int minus = queue.poll();
             sum -= minus;
         }
-        return (double) sum / queue.size();
+        return sum * 1.0 / queue.size();
     }
 }
 
