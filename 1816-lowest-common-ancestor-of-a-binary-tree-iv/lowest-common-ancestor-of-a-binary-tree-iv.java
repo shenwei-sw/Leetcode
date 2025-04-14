@@ -16,7 +16,7 @@ class Solution {
     }
 
     public TreeNode dfs(TreeNode node, TreeNode[] nodes){
-        if(node == null) return node;
+        if(node == null) return null;
         for(TreeNode n : nodes){
             if (n == node) return node;
         }
