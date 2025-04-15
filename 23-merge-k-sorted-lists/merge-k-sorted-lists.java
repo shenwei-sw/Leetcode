@@ -17,12 +17,11 @@ class Solution {
         }
         ListNode cur = pre;
         while(!heap.isEmpty()){
-            ListNode top = heap.poll();
-            cur.next = top;
-            if(top.next != null){
-                heap.offer(top.next);
-            }
+            cur.next = heap.poll();
             cur = cur.next;
+            if(cur.next != null){
+                heap.offer(cur.next);
+            }
         }
         return pre.next;
     }
