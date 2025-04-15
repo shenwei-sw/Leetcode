@@ -26,6 +26,6 @@ class Solution {
     }
 
     public char shift(char t, char s){
-        return (char) ((t - s + 26) % 26 + 'a');
+        return (char) ((t - s + 26) % 26 );
     }
 }
