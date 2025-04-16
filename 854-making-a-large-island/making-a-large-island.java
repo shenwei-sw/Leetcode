@@ -12,9 +12,7 @@ class Solution {
             }
 
         if(map.size() == 0) return 1;
-        System.out.println(index);
         if(map.size() == 1){
-            index--;
             return grid.length * grid[0].length == map.get(2)? map.get(2) : map.get(2) + 1;
         }
         int max = 0;
