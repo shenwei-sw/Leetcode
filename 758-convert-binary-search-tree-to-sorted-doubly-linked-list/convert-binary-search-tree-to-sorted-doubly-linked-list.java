@@ -23,23 +23,20 @@ class Solution {
     public Node treeToDoublyList(Node root) {
         if(root == null) return null;
         Node head = new Node(0);
-        Node cur;
+        Node cur = root;
         Node pre = head;
-        Node node = root;
         Stack<Node> stack = new Stack<>();
 
-        while(node != null || !stack.isEmpty()){
-            while(node != null){
-                stack.push(node);
-                node = node.left;
+        while(cur != null || !stack.isEmpty()){
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
             }
-            node = stack.pop();
-            cur = node;
+            cur = stack.pop();
             cur.left = pre;
             pre.right = cur;      
             pre = cur;
             cur = cur.right;
-            node = node.right;
         }
         pre.right = head.right;
         head.right.left = pre;
