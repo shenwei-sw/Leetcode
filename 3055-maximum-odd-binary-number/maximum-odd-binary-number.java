@@ -8,7 +8,7 @@ class Solution {
         }
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < numOnes - 1; i++){
-            sb.append("1");
+            sb.append('1');
         }
         for(int i = 0; i < len - numOnes; i++){
             sb.append("0");
