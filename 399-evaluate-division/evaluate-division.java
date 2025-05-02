@@ -29,13 +29,13 @@ class Solution {
                 ret[i] = 1.0;
             }
             else {
-                ret[i] = traverse(s, t, map, new HashSet<String>(), 1.0);
+                ret[i] = dfs(s, t, map, new HashSet<String>(), 1.0);
             }        
         }
         return ret;
     }
 
-    public double traverse(String s, String t, Map<String, Map<String, Double>> map, Set<String> visited, double q){
+    public double dfs(String s, String t, Map<String, Map<String, Double>> map, Set<String> visited, double q){
         visited.add(s);
         double ret = -1.0;
 
@@ -47,7 +47,7 @@ class Solution {
             for(Map.Entry<String, Double> entry : neighbors.entrySet()){
                 String nextNode = entry.getKey();
                 if(visited.contains(nextNode)) continue;
-                ret = traverse(nextNode, t, map, visited, q * entry.getValue());
+                ret = dfs(nextNode, t, map, visited, q * entry.getValue());
                 if(ret != -1.0) break;
             }
         }
