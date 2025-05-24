@@ -12,8 +12,7 @@ class MovingAverage {
         sum += val;
         queue.add(val);
         if(queue.size() > size){
-            int minus = queue.poll();
-            sum -= minus;
+            sum -= queue.poll();
         }
         return sum * 1.0 / queue.size();
     }
