@@ -13,7 +13,8 @@ class Solution {
                 right = mid - 1;
             }
         }
+        //return right + k + nums[0];
         int missed = nums[right] - nums[0] - right;
-        return right + k + nums[0];
+        return nums[right] + k - missed;
     }
 }
