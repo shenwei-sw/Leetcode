@@ -8,8 +8,8 @@ class Solution {
             }
             else {
                 count++;
-                if(count >= 3) return true;
             }
+            if(count >= 3) return true;
         }
         return false;
     }
