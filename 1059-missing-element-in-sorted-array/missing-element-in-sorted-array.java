@@ -14,6 +14,6 @@ class Solution {
             }
         }
         int missed = nums[right] - nums[0] - right;
-        return nums[right] + k - missed;
+        return right + k + nums[0];
     }
 }
