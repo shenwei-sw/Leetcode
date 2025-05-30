@@ -19,11 +19,11 @@ class Solution {
             }
             else if (ch == ']'){
                 int preDigit = intStack.pop();
-                StringBuilder pre = strStack.pop();
+                StringBuilder preStr = strStack.pop();
                 while(preDigit-- > 0){
-                    pre.append(sb);
+                    preStr.append(sb);
                 }
-                sb = pre;
+                sb = preStr;
             }
             else {
                 sb.append(ch);
