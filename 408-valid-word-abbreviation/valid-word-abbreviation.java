@@ -12,7 +12,7 @@ class Solution {
             }
             else if(ch > '0' && ch <= '9'){
                 int len = 0;
-                while(ia < lena && isDigit(abbr.charAt(ia))){
+                while(ia < lena && Character.isDigit(abbr.charAt(ia))){
                     len = len * 10 + abbr.charAt(ia) - '0';
                     ia++;
                 }
@@ -21,9 +21,5 @@ class Solution {
             else return false;
         }
         return ia == lena && iw == lenw;
-    }
-
-    public boolean isDigit(char ch){
-        return ch >= '0' && ch <= '9';
     }
 }
