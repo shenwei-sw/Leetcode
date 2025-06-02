@@ -33,10 +33,14 @@ class Solution {
 
     public int largestPathValue(String colors, int[][] edges) {
         int n = colors.length();
-        Map<Integer, List<Integer>> adj = new HashMap<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
 
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], k->new ArrayList<Integer>()).add(edge[1]);
+        for(int i = 0; i < n; i++){
+            map.put(i, new LinkedList<>());
+        }
+
+        for(int[] edge : edges){
+            map.get(edge[0]).add(edge[1]);
         }
 
         int[][] count = new int[n][26];
@@ -44,7 +48,7 @@ class Solution {
         boolean[] inStack = new boolean[n];
         int answer = 0;
         for (int i = 0; i < n; i++) {
-            answer = Math.max(answer, dfs(i, colors, adj, count, visit, inStack));
+            answer = Math.max(answer, dfs(i, colors, map, count, visit, inStack));
         }
 
         return answer == Integer.MAX_VALUE ? -1 : answer;
