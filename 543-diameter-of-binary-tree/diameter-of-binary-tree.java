@@ -25,6 +25,7 @@ class Solution {
         if(node == null) return 0;
         int left = dfs(node.left);
         int right = dfs(node.right);
+        //System.out.printf("Node value %d, left %d, right %d%n", node.val, left, right);
         max = Math.max(max, left + right);
         return Math.max(left, right) + 1;
     }
