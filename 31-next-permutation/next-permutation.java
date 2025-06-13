@@ -13,7 +13,7 @@ class Solution {
             }
             i--;
         }
-        reverse(nums, i + 1);
+        reverse(nums, i + 1, nums.length - 1);
     }
 
     public void swap(int[] nums, int p, int q){
@@ -22,9 +22,8 @@ class Solution {
         nums[q] = temp;
     }
 
-    public void reverse(int[] nums, int left){
-        int right = nums.length - 1;
-        while(left <= right){
+    public void reverse(int[] nums, int left, int right){
+        while(left < right){
             swap(nums, left, right);
             left++;
             right--;
