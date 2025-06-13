@@ -6,9 +6,9 @@ class Solution {
         stack.push(heights.length - 1);
         for(int i = heights.length - 2; i >= 0; i--){
             if(heights[i] > max){
-                stack.add(i);
+                stack.push(i);
+                max = heights[i];
             }
-            max = Math.max(max, heights[i]);
         }
         int[] ret = new int[stack.size()];
         int i = 0;
