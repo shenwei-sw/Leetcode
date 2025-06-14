@@ -4,9 +4,19 @@ class Solution {
     }
 
     public double dfs(double x, long n){
-        if(n == 0) return 1;
-        if(n < 0) return 1 / dfs(x, -n);
-        if(n % 2 == 1) return x * dfs(x * x, (n - 1) / 2);
-        return dfs(x * x, n / 2);
+        if(n < 0){
+            x = 1.0 / x;
+            n = -n;
+        }
+        double ret = 1;
+        while(n != 0){
+            if(n % 2 == 1){
+                ret = ret * x;
+                n -= 1;
+            }
+            x = x * x;
+            n = n / 2;
+        }
+        return ret;
     }
 }
