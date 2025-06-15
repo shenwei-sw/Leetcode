@@ -39,14 +39,14 @@ class Solution {
             if(!map.containsKey(ver)){
                 map.put(ver, new LinkedList<>());
             }
-            map.get(ver).add(tn.val);
-            min = Math.min(min, ver);
-            max = Math.max(max, ver);
+            map.get(ver).add(tn.val);          
             if(tn.left != null){
                 queue.offer(new IndexNode(row + 1, ver - 1, tn.left));
+                min = Math.min(min, ver - 1);
             }
             if(tn.right != null){
                 queue.offer(new IndexNode(row + 1, ver + 1, tn.right));
+                max = Math.max(max, ver + 1);
             }
         }
 
