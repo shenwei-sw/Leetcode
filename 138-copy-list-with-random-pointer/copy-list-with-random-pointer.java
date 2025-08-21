@@ -26,14 +26,13 @@ class Solution {
             if(!map.containsKey(cur)){
                 map.put(cur, new Node(cur.val));
             }
-            Node copy = map.get(cur);
             if(cur.random != null){
                 if(!map.containsKey(cur.random)){
                     map.put(cur.random, new Node(cur.random.val));
                 }
-                copy.random = map.get(cur.random);
+                map.get(cur).random = map.get(cur.random);
             }
-            if(pre != null) map.get(pre).next = copy;
+            if(pre != null) map.get(pre).next = map.get(cur);
             pre = cur;
             cur = cur.next;
         }
